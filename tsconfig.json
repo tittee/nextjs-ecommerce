@@ -5,7 +5,7 @@
       "@styles/*": ["../styles/*"],
       "@public/*": ["../public/*"],
       "@components/*": ["./components/*"],
-      "@common/*": ["./commont/*"]
+      "@common/*": ["./common/*"]
     },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
