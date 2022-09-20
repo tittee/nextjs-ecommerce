@@ -1,11 +1,18 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src/",
+    "paths": {
+      "@styles/*": ["../styles/*"],
+      "@public/*": ["../public/*"],
+      "@components/*": ["./components/*"],
+      "@common/*": ["./commont/*"]
+    },
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "es2015",
+    "lib": ["dom", "esnext"],
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -22,12 +29,5 @@
     "isolatedModules": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/custom.d.ts", "__tests__/**/*.test.js"],
-  "exclude": ["node_modules"],
-  "paths": {
-    "@styles/*": ["../styles/*"],
-    "@public/*": ["../public/*"],
-    "@components/*": ["components/*"],
-    "@common/*": ["commont/*"]
-  },
-  "baseUrl": "src"
+  "exclude": ["node_modules"]
 }
