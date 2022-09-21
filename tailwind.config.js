@@ -2,7 +2,11 @@ const colors = require('./color');
 
 module.exports = {
   mode: 'jit',
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/common/**/*.{js,ts,jsx,tsx}',
+  ],
   presets: [],
   class: false, // or 'media' or 'class'
   theme: {
@@ -19,6 +23,8 @@ module.exports = {
       white: colors.white,
       gray: colors.gray,
       blue: colors.blue,
+      red: colors.blue,
+      orange: colors.blue,
     },
     spacing: {
       px: '1px',
