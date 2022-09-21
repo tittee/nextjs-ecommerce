@@ -496,6 +496,8 @@ module.exports = {
       8: '2rem',
       9: '2.25rem',
       10: '2.5rem',
+      16: '3.25rem',
+      17: '3.75rem',
     },
     listStyleType: {
       none: 'none',

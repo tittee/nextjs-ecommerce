@@ -1,50 +1,76 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import Image from 'next/image';
-import styles from '../../styles/Home.module.css';
 import Layout from '@components/Layout';
+import { clsx } from 'clsx';
+import { Body1, Body3 } from '@common/Body';
+import ImageCommon from '@common/Image';
+import style from '@styles/Home.module.css';
 
 const Home: NextPage = () => {
   return (
     <Layout title="หน้าแรก SWOPMART">
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <h1 className={styles.title}>
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1>
-
-          <p className={styles.description}>
-            Get started by editing <code className={styles.code}>pages/index.tsx</code>
-          </p>
-
-          <div className={styles.grid}>
-            <a href="https://nextjs.org/docs" className={styles.card}>
-              <h2>Documentation &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-
-            <a href="https://nextjs.org/learn" className={styles.card}>
-              <h2>Learn &rarr;</h2>
-              <p>Learn about Next.js in an interactive course with quizzes!</p>
-            </a>
-
-            <a
-              href="https://github.com/vercel/next.js/tree/canary/examples"
-              className={styles.card}
-            >
-              <h2>Examples &rarr;</h2>
-              <p>Discover and deploy boilerplate example Next.js projects.</p>
-            </a>
-
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-            >
-              <h2>Deploy &rarr;</h2>
-              <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-            </a>
+      <div className={clsx('container py-10')}>
+        <h1 className={clsx('leading-17 font-bold text-[2.75rem] text-center')}>
+          แพลตฟอร์มซื้อ-ขายสินค้าไอทีมือสอง
+        </h1>
+        <div className="text-center pt-[0.313rem]">
+          <Body1 isBold={false} style={{ textAlign: 'center' }}>
+            ที่ที่ดีที่สุดในการซื้อสินค้าไอทีมือสองที่คุณรัก
+          </Body1>
+        </div>
+        <div className="flex items-center justify-center gap-[1.563rem] py-4">
+          <div className="flex-none">
+            <Body3 isBold={false}>
+              <ImageCommon
+                src="/assets/svgs/header/tag-icon.svg"
+                alt="สินค้าสุดคุ้ม"
+                width={20}
+                height={20}
+                quality={50}
+                style={{
+                  display: 'inline-block',
+                  filter: 'grayscale(100%)',
+                  paddingRight: '0.25rem',
+                }}
+              />
+              สินค้าสุดคุ้ม
+            </Body3>
           </div>
-        </main>
+          <div className="flex-none">
+            <Body3 isBold={false}>
+              <ImageCommon
+                src="/assets/svgs/header/payment-security-icon.svg"
+                alt="สินค้าสุดคุ้ม"
+                width={20}
+                height={20}
+                quality={50}
+                style={{
+                  display: 'inline-block',
+                  filter: 'grayscale(100%)',
+                  paddingRight: '0.25rem',
+                }}
+              />
+              ชำระเงินปลอดภัย
+            </Body3>
+          </div>
+          <div className="flex-none">
+            <Body3 isBold={false}>
+              <ImageCommon
+                src="/assets/svgs/header/card-installment-icon.svg"
+                alt="สินค้าสุดคุ้ม"
+                width={24}
+                height={24}
+                quality={50}
+                style={{
+                  display: 'inline-block',
+                  filter: 'grayscale(100%)',
+                  paddingRight: '0.25rem',
+                }}
+              />
+              บริการผ่อนชำระ
+            </Body3>
+          </div>
+        </div>
       </div>
     </Layout>
   );
