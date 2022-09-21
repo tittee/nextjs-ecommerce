@@ -6,11 +6,18 @@ interface LinkProps {
   className?: string;
   children: React.ReactNode;
   prefetch?: boolean;
+  passHref?: boolean;
 }
 
-const LinkCommon = ({ href, className, children, prefetch = false }: LinkProps) => {
+const LinkCommon = ({
+  href,
+  className,
+  children,
+  passHref = false,
+  prefetch = false,
+}: LinkProps) => {
   return (
-    <Link href={href} prefetch={prefetch}>
+    <Link href={href} passHref={passHref} prefetch={prefetch}>
       <a className={className}>{children}</a>
     </Link>
   );

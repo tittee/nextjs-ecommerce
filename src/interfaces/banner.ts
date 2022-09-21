@@ -1,7 +1,10 @@
+import { ImageProps } from './image';
+
 export interface BannerProps {
   title: string;
-  imageUrl: string;
-  linkUrl?: string;
-  width: number;
-  height: number;
+  position: string;
+  style: string;
+  background: string;
+  image: ImageProps;
+  url?: string;
 }

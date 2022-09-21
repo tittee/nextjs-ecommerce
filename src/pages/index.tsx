@@ -73,7 +73,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="container">
-        <Banner title="Ads home banner" linkUrl="/" />
+        <Banner></Banner>
       </div>
     </Layout>
   );
