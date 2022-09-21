@@ -4,7 +4,7 @@ import Layout from '@components/Layout';
 import { clsx } from 'clsx';
 import { Body1, Body3 } from '@common/Body';
 import ImageCommon from '@common/Image';
-import style from '@styles/Home.module.css';
+import Banner from '@components/Banner/index';
 
 const Home: NextPage = () => {
   return (
@@ -71,6 +71,9 @@ const Home: NextPage = () => {
             </Body3>
           </div>
         </div>
+      </div>
+      <div className="container">
+        <Banner title="Ads home banner" linkUrl="/" />
       </div>
     </Layout>
   );
