@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { clsx } from 'clsx';
 import LinkCommon from '@common/Link';
 import ImageCommon from '../../../common/Image/index';
