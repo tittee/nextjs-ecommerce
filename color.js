@@ -2,20 +2,17 @@ module.exports = {
   black: '#000',
   white: '#fff',
   gray: {
-    DEFAULT: '#f5f5f5',
-    100: '#bcbcbc',
-    200: '#d1d1d1',
-    400: '#f2f2f2',
-    500: '#999999',
-    600: '#666666',
-    800: '#333333',
-    900: '#272727',
+    100: '#e5e9ed',
+    300: '#a4afbf',
+    800: '#393f49',
   },
   blue: {
-    DEFAULT: '#17519b',
-    100: '#58C3DD',
-    200: '#29B0C7',
-    800: '#3B79E0',
-    900: '#0C4C9E',
+    DEFAULT: '#45bdff',
+  },
+  orange: {
+    DEFAULT: '#ffa400',
+  },
+  red: {
+    DEFAULT: '#eb5757',
   },
 };

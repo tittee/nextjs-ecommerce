@@ -1,0 +1,26 @@
+@import '@styles/sass/variables';
+@import '@styles/sass/mixins/rem';
+@import '@styles/sass/mixins/media-query';
+
+.Header {
+  background-color: #fff;
+  border-bottom: 1px solid $divider-color;
+  display: flex;
+  justify-content: space-between;
+
+  &__Link {
+    font-size: rem(14);
+    line-height: rem(19);
+    font-weight: 600;
+    transition: color 0.3s;
+
+    @include md('md') {
+      font-size: rem(16);
+      line-height: rem(26);
+    }
+
+    &:hover {
+      color: lighten($gray-dark-color, 10%);
+    }
+  }
+}
