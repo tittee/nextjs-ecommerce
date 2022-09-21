@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --grayDark: #393f49;
+  --grayLight: #a4afbf;
+  --white: #ffffff;
+  --blueLight: #45bdff;
+  --red: #eb5757;
+  --orange: #ffa400;
+  --divider: #e5e9ed;
+}
+
 html,
 body {
   padding: 0;

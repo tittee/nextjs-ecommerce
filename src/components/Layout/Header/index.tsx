@@ -6,12 +6,11 @@ import Logo from '@public/assets/svgs/logo-color.svg';
 import style from './Header.module.scss';
 
 import Dropdown from '@components/Dropdown';
-
-const classNames = (classes: any) => {
-  return classes.filter(Boolean).join(' ');
-};
+import ButtonCommon from '@common/Button';
 
 const Header = () => {
+  const login = false;
+
   return (
     <header className={clsx('flex items-center h-[4.5rem]', style.Header)}>
       <div className={clsx('container container-xl')}>
@@ -34,7 +33,16 @@ const Header = () => {
             </div>
           </div>
           <div className="relative flex flex-none">
-            <Dropdown />
+            {!login ? (
+              <ButtonCommon
+                style={{ textColor: 'grayDark', backgroundColor: 'white' }}
+                hoverStyle={{ textColor: 'white', backgroundColor: 'grayDark' }}
+                buttonLabel="เข้าสู่ระบบ"
+                buttonSize="normal"
+              />
+            ) : (
+              <Dropdown />
+            )}
           </div>
         </div>
       </div>

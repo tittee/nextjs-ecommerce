@@ -21,5 +21,12 @@
         "allowSeparatedGroups": true
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
   }
 }
