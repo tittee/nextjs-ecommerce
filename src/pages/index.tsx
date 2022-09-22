@@ -80,7 +80,7 @@ const Home: NextPage = ({ banner }: HomeProps) => {
         </div>
       </div>
       <div className="container">
-        <BannerWithContent {...banner}>
+        <BannerWithContent key={banner.id} {...banner}>
           <div className="flex flex-wrap justify-center md:justify-start">
             <Body2
               isBold={true}

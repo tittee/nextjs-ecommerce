@@ -9,6 +9,7 @@ interface BannerWithContentProps extends BannerProps {
 }
 
 const BannerWithContent = ({
+  id,
   position,
   title = 'Banner Ads',
   href,
@@ -34,8 +35,6 @@ const BannerWithContent = ({
   }
 
   const BannerDisplay = ({ href, isExternal, children }) => {
-    console.log(href);
-
     return href ? (
       <LinkCommon href={href} isExternal={isExternal}>
         {children}
@@ -47,8 +46,9 @@ const BannerWithContent = ({
 
   return (
     <div
+      key={id}
       className={clsx(
-        ' border-0 rounded-[6.25rem] pt-[4rem] md:pt-0',
+        'border-0 rounded-[6.25rem] pt-[4rem] md:pt-0',
         'shadow-[0px_0px_10px_rgba(0,0,0,0.2)]',
         bgColor,
         style
