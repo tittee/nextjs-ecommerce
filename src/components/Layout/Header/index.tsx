@@ -39,6 +39,7 @@ const Header = () => {
                 hoverStyle={{ textColor: 'white', backgroundColor: 'grayDark' }}
                 buttonLabel="เข้าสู่ระบบ"
                 buttonSize="normal"
+                btnStyle="w-[6rem]"
               />
             ) : (
               <Dropdown />

@@ -2,7 +2,6 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import type { NextPage } from 'next';
 import Layout from '@components/Layout';
-
 import Banner from '@components/Banner';
 import HomePageTitle from '@components/Homepage';
 import axios from 'axios';
@@ -14,11 +13,14 @@ interface HomeProps {
 const Home: NextPage = ({ banner }: HomeProps) => {
   return (
     <Layout title="หน้าแรก SWOPMART">
-      <div className="container py-10">
+      <div className="container py-4 md:py-10">
         <HomePageTitle />
       </div>
       <div className="container">
         <Banner {...banner} />
+      </div>
+      <div className="container py-4 md:py-12">
+        <h2>สินค้าของฉัน</h2>
       </div>
     </Layout>
   );
