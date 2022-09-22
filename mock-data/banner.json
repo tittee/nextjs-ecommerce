@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "position": "image-left",
+    "title": "Kingfisher malachite",
+    "href": "https://www.google.com",
+    "isExternal": true,
+    "style": "",
+    "background": "blue-gradient",
+    "image": {
+      "src": "/assets/svgs/ads-banner/banner-image.svg",
+      "alt": "banner ads",
+      "width": 276,
+      "height": 126
+    }
+  }
+]

@@ -1,12 +1,9 @@
 import React from 'react';
 import Image from 'next/future/image';
-
-interface ImageProps {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
+import { ImageProps } from 'interfaces/common';
+interface ImagelurProps extends ImageProps {
   quality?: number;
+  style?: object;
 }
 
 const shimmer = (width: number, height: number) => `
@@ -26,7 +23,7 @@ const shimmer = (width: number, height: number) => `
 const toBase64 = (str: string) =>
   typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str);
 
-const ImageCommon = ({ src, alt, width, height, quality }: ImageProps) => {
+const ImageCommon = ({ src, alt, width, height, quality, style }: ImagelurProps) => {
   return (
     <Image
       src={src}
@@ -36,6 +33,7 @@ const ImageCommon = ({ src, alt, width, height, quality }: ImageProps) => {
       quality={quality}
       blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(width, height))}`}
       placeholder="blur"
+      style={style}
     />
   );
 };

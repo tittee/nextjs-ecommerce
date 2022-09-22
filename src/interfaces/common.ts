@@ -1,3 +1,14 @@
+export interface ImageProps {
+  alt: string;
+  width: number;
+  height: number;
+  src: string;
+}
+
+export interface LinkProps {
+  href?: string;
+}
+
 export interface ButtonStyleProps {
   textColor?: string;
   backgroundColor?: string;
