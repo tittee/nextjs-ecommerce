@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/future/image';
-import { ImageProps } from 'interfaces/image';
+import { ImageProps } from 'interfaces/common';
 interface ImagelurProps extends ImageProps {
   quality?: number;
   style?: object;

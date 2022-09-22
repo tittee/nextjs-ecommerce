@@ -1,24 +1,28 @@
 import React from 'react';
 import Link from 'next/link';
+import { LinkProps } from 'interfaces/common';
 
-interface LinkProps {
-  href: string;
+interface LinkChildrenProps extends LinkProps {
   className?: string;
   children: React.ReactNode;
   prefetch?: boolean;
   passHref?: boolean;
+  isExternal?: boolean;
 }
 
 const LinkCommon = ({
   href,
+  isExternal,
   className,
   children,
   passHref = false,
   prefetch = false,
-}: LinkProps) => {
+}: LinkChildrenProps) => {
   return (
     <Link href={href} passHref={passHref} prefetch={prefetch}>
-      <a className={className}>{children}</a>
+      <a className={className} target={isExternal ? '_blank' : '_self'}>
+        {children}
+      </a>
     </Link>
   );
 };
