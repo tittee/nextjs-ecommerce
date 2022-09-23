@@ -4,6 +4,7 @@ import type { NextPage } from 'next';
 import Layout from '@components/Layout';
 import Banner from '@components/Banner';
 import HomePageTitle from '@components/Homepage';
+import { Heading2 } from '@common/Heading';
 import axios from 'axios';
 // import Service from 'lib/service';
 
@@ -20,7 +21,7 @@ const Home: NextPage = ({ banner }: HomeProps) => {
         <Banner {...banner} />
       </div>
       <div className="container py-4 md:py-12">
-        <h2>สินค้าของฉัน</h2>
+        <Heading2>สินค้าของฉัน</Heading2>
       </div>
     </Layout>
   );

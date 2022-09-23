@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1001,
+    "title": "สินค้าของฉัน",
+    "products": [
+      {
+        "id": 1,
+        "sellerId": 114,
+        "category": "Seville",
+        "name": "Vermouth - Sweet, Cinzano",
+        "description": "Cls red-radius/ul epiphy",
+        "image": "http://dummyimage.com/x.png/cc0000/ffffff",
+        "price": 472.46,
+        "condition": null,
+        "dateCreated": "09/30/2021",
+        "updatedDate": "06/26/2022"
+      },
+      {
+        "id": 2,
+        "sellerId": 672,
+        "category": "M",
+        "name": "Chips - Doritos",
+        "description": "Conduit artium-pulm art",
+        "image": "http://dummyimage.com/x.png/ff4444/ffffff",
+        "price": 428.99,
+        "condition": null,
+        "dateCreated": "01/24/2022",
+        "updatedDate": "11/08/2021"
+      },
+      {
+        "id": 3,
+        "sellerId": 976,
+        "category": "Galant",
+        "name": "Wine - Kwv Chenin Blanc South",
+        "description": "Subconjunctival inject",
+        "image": "http://dummyimage.com/x.png/ff4444/ffffff",
+        "price": 902.23,
+        "condition": null,
+        "dateCreated": "12/15/2021",
+        "updatedDate": "12/04/2021"
+      },
+      {
+        "id": 4,
+        "sellerId": 529,
+        "category": "Outback",
+        "name": "Cheese - Roquefort Pappillon",
+        "description": "Op bi dr/in ig hr-gr NEC",
+        "image": "http://dummyimage.com/x.png/ff4444/ffffff",
+        "price": 914.86,
+        "condition": null,
+        "dateCreated": "05/21/2022",
+        "updatedDate": "09/27/2021"
+      },
+      {
+        "id": 5,
+        "sellerId": 571,
+        "category": "Montero",
+        "name": "Goat - Leg",
+        "description": "Oth extraoc mus-tend op",
+        "image": "http://dummyimage.com/x.png/cc0000/ffffff",
+        "price": 578.03,
+        "condition": null,
+        "dateCreated": "11/17/2021",
+        "updatedDate": "01/16/2022"
+      },
+      {
+        "id": 6,
+        "sellerId": 879,
+        "category": "Challenger",
+        "name": "Beans - Butter Lrg Lima",
+        "description": "Resrf hip,part-fem head",
+        "image": "http://dummyimage.com/x.png/ff4444/ffffff",
+        "price": 827.37,
+        "condition": null,
+        "dateCreated": "03/17/2022",
+        "updatedDate": "05/03/2022"
+      },
+      {
+        "id": 7,
+        "sellerId": 569,
+        "category": "XC70",
+        "name": "Nacho Chips",
+        "description": "X-ray study of eye",
+        "image": "http://dummyimage.com/x.png/ff4444/ffffff",
+        "price": 509.6,
+        "condition": null,
+        "dateCreated": "09/22/2022",
+        "updatedDate": "01/17/2022"
+      },
+      {
+        "id": 8,
+        "sellerId": 192,
+        "category": "Camry",
+        "name": "Mushroom - Porcini Frozen",
+        "description": "Pancreatic tube irrigat",
+        "image": "http://dummyimage.com/x.png/5fa2dd/ffffff",
+        "price": 739.6,
+        "condition": null,
+        "dateCreated": "10/28/2021",
+        "updatedDate": "05/29/2022"
+      },
+      {
+        "id": 9,
+        "sellerId": 666,
+        "category": "Town & Country",
+        "name": "Honey - Liquid",
+        "description": "Imp crtd sinus stm,totl",
+        "image": "http://dummyimage.com/x.png/ff4444/ffffff",
+        "price": 234.33,
+        "condition": null,
+        "dateCreated": "12/28/2021",
+        "updatedDate": "01/22/2022"
+      },
+      {
+        "id": 10,
+        "sellerId": 612,
+        "category": "Falcon",
+        "name": "Wine - Magnotta - Red, Baco",
+        "description": "Drug rehab/detox",
+        "image": "http://dummyimage.com/x.png/dddddd/000000",
+        "price": 494.01,
+        "condition": null,
+        "dateCreated": "12/28/2021",
+        "updatedDate": "04/11/2022"
+      }
+    ]
+  }
+]
