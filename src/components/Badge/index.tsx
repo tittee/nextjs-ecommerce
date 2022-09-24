@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageCommon from '@common/Image';
+import Image from 'next/future/image';
 import { getBadge } from 'lib/helper';
 
 interface BadgeProps {
@@ -10,7 +10,7 @@ const Bagde = ({ tag }: BadgeProps) => {
 
   return (
     <>
-      <ImageCommon
+      <Image
         src={`/assets/svgs/condition/${icon}.svg`}
         alt="gadge"
         width={16}
