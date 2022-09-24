@@ -10,7 +10,7 @@ export interface Body3Props {
 const Body3 = ({
   children,
   isBold = false,
-  textColor = 'text-gray-300',
+  textColor = 'text-gray-800',
   style,
 }: PropsWithChildren<Body3Props>) => (
   <span

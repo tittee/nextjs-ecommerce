@@ -27,3 +27,8 @@ export interface ButtonProps {
   onClick?: () => void;
   btnStyle?: string;
 }
+
+export interface HeadingProps {
+  textColor?: string;
+  style?: object;
+}

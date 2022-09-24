@@ -103,7 +103,7 @@ const ButtonCommon = ({
   };
 
   const getMinWidth = () => {
-    return { minWidth: '11rem' };
+    return { minWidth: '6rem' };
   };
 
   const getButtonPadding = () => {

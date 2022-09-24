@@ -10,6 +10,9 @@
   --red: #eb5757;
   --orange: #ffa400;
   --divider: #e5e9ed;
+  --new-badge: #ffa400;
+  --good-badge: #45bdff;
+  --middle-badge: #eb5757;
 }
 
 html,
