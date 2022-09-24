@@ -1,0 +1,65 @@
+@import '@styles/sass/variables';
+@import '@styles/sass/mixins/rem';
+@import '@styles/sass/mixins/media-query';
+
+.Product {
+  &__Box {
+    position: relative;
+    background: $white;
+    box-shadow: 0 0 rem(10) $blue-shadow-color;
+    border-radius: rem(20) rem(4);
+
+    &__Image {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: rem(190);
+      border-radius: rem(20) rem(4) 0 0;
+      transition: all 0.3s ease;
+      img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background: rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: all 1s;
+        -webkit-transition: all 1s;
+      }
+      &:hover {
+        &:before {
+          opacity: 1;
+          border-radius: rem(20) rem(4) 0 0;
+        }
+        .Product__Box__Remove {
+          transition: opacity 0.3s ease;
+          opacity: 1;
+          display: block;
+        }
+      }
+    }
+    &__Remove {
+      display: none;
+      position: absolute;
+      top: rem(12);
+      right: rem(12);
+      opacity: 0;
+    }
+    &__Warranty {
+      position: absolute;
+      top: rem(12);
+      left: rem(-4);
+    }
+    &__Content {
+      padding: rem(9) rem(12);
+    }
+  }
+}

@@ -28,5 +28,5 @@ export interface ProductProps {
 export interface ProductMainProps {
   id: number;
   title?: string;
-  product?: Array<ProductProps>;
+  products?: Array<ProductProps>;
 }
