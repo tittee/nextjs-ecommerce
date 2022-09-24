@@ -10,8 +10,11 @@ import axios from 'axios';
 
 interface HomeProps {
   banner: object;
+  products: object;
 }
-const Home: NextPage = ({ banner }: HomeProps) => {
+const Home: NextPage = ({ banner, products }: HomeProps) => {
+  console.log(products);
+
   return (
     <Layout title="หน้าแรก SWOPMART">
       <div className="container py-4 md:py-10">
@@ -21,7 +24,7 @@ const Home: NextPage = ({ banner }: HomeProps) => {
         <Banner {...banner} />
       </div>
       <div className="container py-4 md:py-12">
-        <ProductMain id={11} title="" products={} />
+        <ProductMain {...products} />
       </div>
     </Layout>
   );
@@ -30,13 +33,21 @@ const Home: NextPage = ({ banner }: HomeProps) => {
 export const getStaticProps: GetStaticProps = async () => {
   // const nestjs = new Service();
   // const [banner] = await Promise.all([nestjs.getBanner()]);
+
   const banner = await axios.get(process.env.NEXT_PUBLIC_API_URL + `/banner`).then((response) => {
     return response.data[0];
   });
 
+  const products = await axios
+    .get(process.env.NEXT_PUBLIC_API_URL + `/product`)
+    .then((response) => {
+      return response.data[0];
+    });
+
   return {
     props: {
       banner,
+      products,
     },
     revalidate: 1, // In seconds
   };

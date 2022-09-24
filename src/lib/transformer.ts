@@ -27,7 +27,7 @@ export const transformBanner = ({
 
 export const transformMainProduct = (data): ProductMainProps => ({
   id: data.id,
-  product: data.products ? data.products.map((p) => transformProduct(p)) : null,
+  products: data.products ? data.products.map((p) => transformProduct(p)) : null,
 });
 
 export const transformProduct = (data): ProductProps => ({
