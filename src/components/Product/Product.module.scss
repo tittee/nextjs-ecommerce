@@ -59,6 +59,7 @@
       left: rem(-4);
     }
     &__Content {
+      min-height: rem(90);
       padding: rem(9) rem(12);
     }
   }

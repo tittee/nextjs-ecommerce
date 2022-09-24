@@ -14,7 +14,7 @@ export interface BannerProps {
 export interface ProductProps {
   id: number;
   href?: string;
-  title: string;
+  name: string;
   tag?: 'เหมือนใหม่' | 'สภาพดี' | 'ปานกลาง';
   description: string;
   price: number;

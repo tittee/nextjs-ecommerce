@@ -1,14 +1,20 @@
 import React from 'react';
-import { Heading2, Heading3 } from '@common/Heading';
 import style from './Product.module.scss';
 import { clsx } from 'clsx';
 import { Body3, Body2 } from '@common/Body';
 import ImageCommon from '@common/Image';
 import Link from 'next/link';
+import { ProductProps } from 'interfaces/components';
 
-const Product = () => {
+const Product = ({ id, href, name, tag, price, image }: ProductProps) => {
+  console.log(image);
+
+  const thaiThb = new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(
+    price
+  );
+
   return (
-    <div className={clsx('block', style.Product__Box)}>
+    <div key={id} className={clsx('block', style.Product__Box)}>
       <div className={clsx('relative', style.Product__Box__Image)}>
         <div className={clsx(style.Product__Box__Warranty)}>
           <ImageCommon
@@ -35,17 +41,14 @@ const Product = () => {
             </a>
           </Link>
         </div>
-        <ImageCommon
-          src="/assets/svgs/product/dummy.png"
-          alt="Product 1"
-          width={300}
-          height={190}
-        />
+        <ImageCommon src={image} alt="Product 1" width={300} height={190} />
       </div>
-      <div className={clsx('block', style.Product__Box__Content)}>
-        <Body2 isBold={true}>ปานกลาง Samsung Galaxy s20 Flex-036A...</Body2>
-        <Body3 isBold={true} style={{ display: 'block', marginTop: '0.5rem' }}>
-          ฿6,900
+      <div className={clsx('flex flex-wrap content-between', style.Product__Box__Content)}>
+        <Body2 isBold={true} style={{ display: 'block', width: '100%' }}>
+          {tag} {name}
+        </Body2>
+        <Body3 isBold={true} style={{ display: 'block', marginTop: '0', width: '100%' }}>
+          {thaiThb}
         </Body3>
       </div>
     </div>
