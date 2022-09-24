@@ -14,7 +14,7 @@ interface HomeProps {
 }
 const Home: NextPage = ({ banner, products }: HomeProps) => {
   return (
-    <Layout title="หน้าแรก SWOPMART">
+    <Layout title="หน้าแรก SWOPMART" bgColor="bg-white">
       <div className="container py-4 md:py-10">
         <HomePageTitle />
       </div>

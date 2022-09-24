@@ -16,11 +16,11 @@ export interface ProductProps {
   href?: string;
   name: string;
   tag?: 'เหมือนใหม่' | 'สภาพดี' | 'ปานกลาง';
-  description: string;
-  price: number;
+  description?: string;
+  price?: number;
   image: ImageProps;
   seller: string;
-  stock: number;
+  stock?: number;
   dateCreated: Date;
   updatedDate: Date;
 }
