@@ -32,7 +32,9 @@ a {
   box-sizing: border-box;
 }
 
-input {
+input,
+select,
+textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
