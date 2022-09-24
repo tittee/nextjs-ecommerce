@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import Head from 'next/head';
 import Header from './Header';
 import Footer from './Footer';
@@ -6,9 +6,14 @@ import Footer from './Footer';
 type LayoutProps = {
   title?: string;
   children: React.ReactNode;
+  bgColor?: string;
 };
 
-const Layout: FC<LayoutProps> = ({ title, children }) => {
+const Layout: FC<LayoutProps> = ({ title, children, bgColor = 'bg-gray-200' }) => {
+  useEffect(() => {
+    document.body.classList.add(bgColor || 'bg-white');
+  }, []);
+
   return (
     <>
       <Head>

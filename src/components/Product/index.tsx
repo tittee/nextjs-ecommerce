@@ -55,9 +55,11 @@ const Product = ({ id, href, name, tag, price, image }: ProductProps) => {
         >
           <Bagde tag={tag} /> {name}
         </Body2>
-        <Body3 isBold={true} style={{ display: 'block', marginTop: '0.25rem', width: '100%' }}>
-          {thaiThb}
-        </Body3>
+        {price && (
+          <Body3 isBold={true} style={{ display: 'block', marginTop: '0.25rem', width: '100%' }}>
+            {thaiThb}
+          </Body3>
+        )}
       </div>
     </div>
   );

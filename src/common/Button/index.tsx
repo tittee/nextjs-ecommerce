@@ -25,7 +25,7 @@ const ButtonCommon = ({
   const textColor = style?.textColor ? getColorCode(style.textColor) : 'white';
   const backgroundColor = style?.backgroundColor
     ? getColorCode(style.backgroundColor)
-    : 'var(--buttonPrimaryBg)';
+    : 'var(--button)';
 
   const hoverTextColor = hoverStyle?.textColor
     ? getColorCode(hoverStyle.textColor)
@@ -33,29 +33,27 @@ const ButtonCommon = ({
 
   const hoverBackgroundColor = hoverStyle?.backgroundColor
     ? getColorCode(hoverStyle.backgroundColor)
-    : 'var(--buttonPrimaryBgHover)';
+    : 'var(--buttonHover)';
 
   const outlineBorderColor = style?.backgroundColor
     ? getColorCode(style.backgroundColor)
-    : 'var(--buttonPrimaryBg)';
+    : 'var(--button)';
 
   const hoverOutlineBorderColor = hoverStyle?.backgroundColor
     ? getColorCode(hoverStyle.backgroundColor)
-    : 'var(--buttonPrimaryBgHover)';
+    : 'var(--buttonHover)';
 
-  const outlineTextColor = style?.textColor
-    ? getColorCode(style.textColor)
-    : 'var(--buttonPrimaryBg)';
+  const outlineTextColor = style?.textColor ? getColorCode(style.textColor) : 'var(--button)';
 
   const hoverOutlineTextColor = hoverStyle?.textColor
     ? getColorCode(hoverStyle.textColor)
-    : 'var(--buttonPrimaryBg)';
+    : 'var(--button)';
 
-  const linkTextColor = style?.textColor ? getColorCode(style.textColor) : 'var(--buttonPrimaryBg)';
+  const linkTextColor = style?.textColor ? getColorCode(style.textColor) : 'var(--button)';
 
   const hoverLinkTextColor = hoverStyle?.textColor
     ? getColorCode(hoverStyle.textColor)
-    : 'var(--buttonPrimaryBgHover)';
+    : 'var(--buttonHover)';
 
   const getButtonStyles = () => {
     switch (buttonType) {
@@ -68,7 +66,7 @@ const ButtonCommon = ({
             borderColor: outlineBorderColor,
           },
           hoverStyles: {
-            backgroundColor: 'var(--accordionPanelBg)',
+            backgroundColor: 'var(--white)',
             color: isDisabled ? 'var(--buttonDisabledTextColor)' : hoverOutlineTextColor,
             borderColor: isDisabled ? 'var(--buttonDisabledBorder)' : hoverOutlineBorderColor,
           },
@@ -90,13 +88,13 @@ const ButtonCommon = ({
         return {
           defaultStyles: {
             backgroundColor: isDisabled ? 'var(--buttonDisabledBg)' : backgroundColor,
-            color: isDisabled ? 'var(--buttonDisabledTextColor)' : textColor,
+            color: isDisabled ? 'var(--white)' : textColor,
             outline: 'none',
             border: 0,
           },
           hoverStyles: {
-            backgroundColor: isDisabled ? 'var(--buttonDisabledBg)' : hoverBackgroundColor,
-            color: isDisabled ? 'var(--buttonDisabledTextColor)' : hoverTextColor,
+            backgroundColor: isDisabled ? 'var(--buttonDisbled)' : hoverBackgroundColor,
+            color: isDisabled ? 'var(--white)' : hoverTextColor,
           },
         };
     }
@@ -111,12 +109,9 @@ const ButtonCommon = ({
       if (buttonType === 'outline') {
         return { padding: '0.844rem 4rem' };
       }
-      return { padding: '0.25 4rem' };
+      return { padding: '0.844rem 4.219rem' };
     }
-    if (buttonType === 'outline') {
-      return { padding: '0.5rem 3rem' };
-    }
-    return { padding: '0.625rem 3.125rem' };
+    return { padding: '0.925rem 4.219rem' };
   };
 
   /**
