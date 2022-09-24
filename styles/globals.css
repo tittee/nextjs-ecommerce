@@ -14,6 +14,8 @@
   --good-badge: #45bdff;
   --middle-badge: #eb5757;
   --button: #12284c;
+  --buttonDisbled: #a4afbf;
+  --buttonDisabledBg: #393f49;
 }
 
 html,
@@ -47,12 +49,19 @@ textarea {
   border: 0.063rem solid var(--divider);
 }
 
+select {
+  color: var(--grayDark);
+}
+select option {
+  color: var(--grayDark);
+}
+
 label {
   text-align: left;
   display: block;
-  margin-bottom: 0.813rem;
-  margin-top: 1.25rem;
-  color: var(--white);
+  margin-bottom: 0.25rem;
+  margin-top: 0;
+  color: var(--grayDark);
   font-size: 1rem;
   line-height: 1.625rem;
   font-weight: 600;
@@ -60,30 +69,28 @@ label {
 
 button[type='submit'],
 input[type='submit'] {
-  background: var(--button);
-  color: var(--white);
-  text-transform: uppercase;
+  /* background: var(--button);
+  color: var(--white);  
   border: none;
-  margin-top: 2.5rem;
+  margin-top: 0;
   padding: 1.25rem;
   font-size: 1rem;
-  font-weight: 100;
-  letter-spacing: 0.625rem;
+  font-weight: 600;   */
   border-radius: 0.375rem;
 }
 
 button[type='submit']:hover,
 input[type='submit']:hover {
-  background: var(--white);
+  /* background: var(--white); */
 }
 
 button[type='submit']:active,
 input[type='button']:active,
 input[type='submit']:active {
-  transition: 0.3s all;
+  /* transition: 0.3s all;
   transform: translateY(0.188rem);
   border: 0.063rem solid transparent;
-  opacity: 0.8;
+  opacity: 0.8; */
 }
 
 input:disabled {
@@ -91,33 +98,33 @@ input:disabled {
 }
 
 input[type='button']:hover {
-  transition: 0.3s all;
+  /* transition: 0.3s all; */
 }
 
 button[type='submit'],
 input[type='button'],
 input[type='submit'] {
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 
 button[type='button'] {
-  display: block;
+  /* display: block;
   appearance: none;
   background: #333;
   color: var(--white);
   border: none;
   text-transform: uppercase;
   padding: 0.625rem 1.25rem;
-  border-radius: 0.25rem;
+  border-radius: 0.25rem; */
 }
 
 button {
-  display: block;
+  /* display: block;
   appearance: none;
   margin-top: 2.5rem;
   border: 0.063rem solid #333;
   margin-bottom: 1.25rem;
   text-transform: uppercase;
   padding: 0.625rem 1.25rem;
-  border-radius: 0.25rem;
+  border-radius: 0.25rem; */
 }
