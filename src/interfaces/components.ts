@@ -14,7 +14,6 @@ export interface BannerProps {
 export interface ProductProps {
   id: number;
   href?: string;
-  isExternal?: boolean;
   title: string;
   tag?: 'เหมือนใหม่' | 'สภาพดี' | 'ปานกลาง';
   description: string;
@@ -24,4 +23,10 @@ export interface ProductProps {
   stock: number;
   dateCreated: Date;
   updatedDate: Date;
+}
+
+export interface ProductMainProps {
+  id: number;
+  title?: string;
+  product?: Array<ProductProps>;
 }
