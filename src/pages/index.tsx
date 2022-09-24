@@ -13,8 +13,6 @@ interface HomeProps {
   products: object;
 }
 const Home: NextPage = ({ banner, products }: HomeProps) => {
-  console.log(products);
-
   return (
     <Layout title="หน้าแรก SWOPMART">
       <div className="container py-4 md:py-10">
