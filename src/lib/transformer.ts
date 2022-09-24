@@ -33,7 +33,7 @@ export const transformMainProduct = (data): ProductMainProps => ({
 export const transformProduct = (data): ProductProps => ({
   id: data.id,
   href: getSafeLinkUrl(data.href),
-  title: data.title,
+  name: data.name,
   tag: data.tag,
   description: data.description,
   price: data.price,

@@ -5,10 +5,9 @@ import { Body3, Body2 } from '@common/Body';
 import ImageCommon from '@common/Image';
 import Link from 'next/link';
 import { ProductProps } from 'interfaces/components';
+import Bagde from '@components/Badge';
 
 const Product = ({ id, href, name, tag, price, image }: ProductProps) => {
-  console.log(image);
-
   const thaiThb = new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(
     price
   );
@@ -41,13 +40,22 @@ const Product = ({ id, href, name, tag, price, image }: ProductProps) => {
             </a>
           </Link>
         </div>
-        <ImageCommon src={image} alt="Product 1" width={300} height={190} />
+
+        <ImageCommon
+          {...image}
+          width={image.width}
+          height={image.height}
+          style={{ borderRadius: '1.25rem 0.25rem 0 0' }}
+        />
       </div>
       <div className={clsx('flex flex-wrap content-between', style.Product__Box__Content)}>
-        <Body2 isBold={true} style={{ display: 'block', width: '100%' }}>
-          {tag} {name}
+        <Body2
+          isBold={true}
+          style={{ display: 'inline-block', lineHeight: '1.5rem', width: '100%' }}
+        >
+          <Bagde tag={tag} /> {name}
         </Body2>
-        <Body3 isBold={true} style={{ display: 'block', marginTop: '0', width: '100%' }}>
+        <Body3 isBold={true} style={{ display: 'block', marginTop: '0.25rem', width: '100%' }}>
           {thaiThb}
         </Body3>
       </div>

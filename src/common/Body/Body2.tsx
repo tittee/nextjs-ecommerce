@@ -14,7 +14,7 @@ const Body2 = ({
   style,
 }: PropsWithChildren<Body2Props>) => (
   <span
-    className={clsx('leading-tight', textColor, 'text-sm', isBold ? 'bold' : 'normal')}
+    className={clsx('leading-tight', textColor, 'text-sm', isBold ? 'font-bold' : 'font-normal')}
     style={style}
   >
     {children}
