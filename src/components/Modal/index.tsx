@@ -1,7 +1,13 @@
+import { Fragment, PropsWithChildren } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
+import Link from 'next/link';
 
-export default function Modal({ isOpen, setIsOpen }) {
+export interface modalProps {
+  title: string;
+  isOpen: boolean;
+  setIsOpen: (boolean) => void;
+}
+const Modal = ({ title, isOpen, setIsOpen, children }: PropsWithChildren<modalProps>) => {
   function closeModal() {
     setIsOpen(false);
   }
@@ -34,17 +40,33 @@ export default function Modal({ isOpen, setIsOpen }) {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                    Payment successful
+                  <Dialog.Title
+                    as="h3"
+                    className="relative text-2xl font-bold text-gray-800 pr-6 mb-6"
+                  >
+                    {title}
+                    <Link href="/">
+                      <a onClick={closeModal} className="absolute right-0">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-6 h-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </a>
+                    </Link>
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent you an email with all
-                      of the details of your order.
-                    </p>
-                  </div>
+                  <div className="mt-2">{children}</div>
 
-                  <div className="mt-4">
+                  {/* <div className="mt-4">
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -52,7 +74,7 @@ export default function Modal({ isOpen, setIsOpen }) {
                     >
                       Got it, thanks!
                     </button>
-                  </div>
+                  </div> */}
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -61,4 +83,6 @@ export default function Modal({ isOpen, setIsOpen }) {
       </Transition>
     </>
   );
-}
+};
+
+export default Modal;

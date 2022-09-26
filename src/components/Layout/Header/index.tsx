@@ -7,6 +7,7 @@ import style from './Header.module.scss';
 import Modal from '@components/Modal';
 import Dropdown from '@components/Dropdown';
 import ButtonCommon from '@common/Button';
+import { LoginForm } from '@components/Form';
 
 const Header = () => {
   const login = false;
@@ -55,7 +56,9 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
+      <Modal title="เข้าสู่ระบบ" isOpen={isOpen} setIsOpen={setIsOpen}>
+        <LoginForm />
+      </Modal>
     </>
   );
 };
