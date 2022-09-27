@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { clsx } from 'clsx';
 import LinkCommon from '@common/Link';
 import ImageCommon from '../../../common/Image/index';
@@ -11,10 +11,10 @@ import { LoginForm } from '@components/Form';
 
 const Header = () => {
   const login = false;
-  let [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => {
-    setIsOpen(true);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const openLoginModal = () => {
+    setIsLoginOpen(true);
   };
 
   return (
@@ -47,7 +47,7 @@ const Header = () => {
                   buttonLabel="เข้าสู่ระบบ"
                   buttonSize="normal"
                   btnStyle="w-[6rem]"
-                  onClick={openModal}
+                  onClick={openLoginModal}
                 />
               ) : (
                 <Dropdown />
@@ -56,9 +56,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <Modal title="เข้าสู่ระบบ" isOpen={isOpen} setIsOpen={setIsOpen}>
-        <LoginForm />
-      </Modal>
+      <LoginForm isLoginOpen={isLoginOpen} setIsLoginOpen={setIsLoginOpen} />
     </>
   );
 };
