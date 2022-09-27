@@ -9,6 +9,7 @@ module.exports = {
   },
   blue: {
     DEFAULT: '#45bdff',
+    800: '#12284C',
   },
   orange: {
     DEFAULT: '#ffa400',
