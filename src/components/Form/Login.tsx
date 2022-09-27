@@ -92,7 +92,7 @@ const LoginForm = ({ isLoginOpen, setIsLoginOpen }) => {
                         <input
                           type="email"
                           placeholder="โปรดกรอกอีเมล"
-                          className="rounded-lg"
+                          className="rounded-lg mb-0"
                           {...register('email', { required: true, maxLength: 100 })}
                         />
                       </div>
@@ -107,7 +107,7 @@ const LoginForm = ({ isLoginOpen, setIsLoginOpen }) => {
                         <input
                           type="password"
                           placeholder="โปรดกรอกรหัสผ่าน"
-                          className="rounded-lg"
+                          className="rounded-lg mb-0"
                           {...register('password', { required: true, maxLength: 80 })}
                         />
                       </div>

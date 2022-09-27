@@ -70,20 +70,39 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                 </Dialog.Title>
                 <div className="mt-2">
                   <form onSubmit={handleSubmit(onSubmit)} className="flex flex-wrap flex-row gap-4">
-                    <div className="flex w-full">
+                    <div className="flex w-full gap-4">
                       <div className="flex-none w-1/2">
                         <BodyLabel
-                          htmlFor="email"
+                          htmlFor="firstName"
                           textColor="text-gray-800"
                           style={{ display: 'block' }}
                         >
-                          อีเมล*
+                          ชื่อ*
                         </BodyLabel>
                         <input
                           type="text"
                           placeholder="First name"
-                          className="rounded-lg"
-                          {...register('First name', {
+                          className="rounded-lg mb-0"
+                          {...register('firstName', {
+                            required: true,
+                            maxLength: 80,
+                            pattern: /asasas/i,
+                          })}
+                        />
+                      </div>
+                      <div className="flex-none w-1/2">
+                        <BodyLabel
+                          htmlFor="lastName"
+                          textColor="text-gray-800"
+                          style={{ display: 'block' }}
+                        >
+                          นามสกุล*
+                        </BodyLabel>
+                        <input
+                          type="text"
+                          placeholder="Last name"
+                          className="rounded-lg mb-0"
+                          {...register('lastName', {
                             required: true,
                             maxLength: 80,
                             pattern: /asasas/i,
@@ -92,37 +111,76 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                       </div>
                     </div>
 
-                    <input
-                      type="text"
-                      placeholder="First name"
-                      {...register('First name', {
-                        required: true,
-                        maxLength: 80,
-                        pattern: /asasas/i,
-                      })}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Last name"
-                      {...register('Last name', { required: true, maxLength: 100 })}
-                    />
-                    <input
-                      type="text"
-                      placeholder="Email"
-                      {...register('Email', { required: true, pattern: /^\S+@\S+$/i })}
-                    />
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      {...register('Password', { required: true, maxLength: 80 })}
-                    />
-                    <input
-                      type="password"
-                      placeholder="Confirm Password"
-                      {...register('Confirm Password', { required: true })}
-                    />
+                    <div className="flex-none w-full">
+                      <BodyLabel
+                        htmlFor="email"
+                        textColor="text-gray-800"
+                        style={{ display: 'block' }}
+                      >
+                        อีเมล*
+                      </BodyLabel>
+                      <input
+                        type="email"
+                        placeholder="โปรดกรอกอีเมล"
+                        className="rounded-lg mb-0"
+                        {...register('email', {
+                          required: true,
+                          pattern: /^\S+@\S+$/i,
+                          maxLength: 100,
+                        })}
+                      />
+                    </div>
 
-                    <input type="submit" />
+                    <div className="flex-none w-full">
+                      <BodyLabel
+                        htmlFor="email"
+                        textColor="text-gray-800"
+                        style={{ display: 'block' }}
+                      >
+                        รหัสผ่าน*
+                      </BodyLabel>
+                      <input
+                        type="password"
+                        placeholder="Password"
+                        className="rounded-lg mb-0"
+                        {...register('Password', { required: true, maxLength: 80 })}
+                      />
+                    </div>
+
+                    <div className="flex-none w-full">
+                      <BodyLabel
+                        htmlFor="email"
+                        textColor="text-gray-800"
+                        style={{ display: 'block' }}
+                      >
+                        ยืนยันรหัสผ่าน*
+                      </BodyLabel>
+                      <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        className="rounded-lg mb-0"
+                        {...register('Confirm Password', { required: true })}
+                      />
+                    </div>
+
+                    <div className="flex-none w-full">
+                      <ButtonCommon
+                        isFullWidth={true}
+                        buttonSize="normal"
+                        buttonLabel="เข้าสู่ระบบ"
+                        buttonType="primary"
+                        fontWeight="bold"
+                        style={{
+                          textColor: 'white',
+                          backgroundColor: 'button',
+                        }}
+                        hoverStyle={{
+                          textColor: 'orange',
+                          backgroundColor: 'button',
+                        }}
+                        onClick={() => console.log('click')}
+                      />
+                    </div>
                   </form>
                 </div>
               </Dialog.Panel>
