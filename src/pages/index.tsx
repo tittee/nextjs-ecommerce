@@ -11,11 +11,8 @@ import Service from 'lib/service';
 interface HomeProps {
   banner: object;
   products: object;
-  productsNew: object;
 }
-const Home: NextPage = ({ banner, products, productsNew }: HomeProps) => {
-  console.log(productsNew);
-
+const Home: NextPage = ({ banner, products }: HomeProps) => {
   return (
     <Layout title="หน้าแรก SWOPMART" bgColor="bg-white">
       <div className="container py-4 md:py-10">
@@ -34,7 +31,6 @@ const Home: NextPage = ({ banner, products, productsNew }: HomeProps) => {
 export const getStaticProps: GetStaticProps = async () => {
   const nestjs = new Service();
 
-  // const [banner, products] = await Promise.all([nestjs.getProducts()]);
   // const [banner] = await Promise.all([nestjs.getBanner()]);
 
   const banner = await axios.get(process.env.NEXT_PUBLIC_API_URL + `/banner`).then((response) => {

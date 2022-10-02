@@ -7,6 +7,7 @@ import Link from 'next/link';
 
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import Service from 'lib/service';
 
 type FormValues = {
   firstname: string;
@@ -47,8 +48,7 @@ const resolver: Resolver<FormValues> = async (values) => {
 };
 
 const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
-  let password;
-
+  const nestjs = new Service();
   const formSchema = Yup.object().shape({
     password: Yup.string()
       .required('Password is required')
@@ -70,13 +70,13 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
     mode: 'onTouched',
     resolver: yupResolver(formSchema),
   });
-  password = watch('password', '');
 
   const onSubmit = (data) => {
-    console.log(data);
+    const { firstname, lastname, email, password } = data;
+    nestjs.signUp({ firstname, lastname, email, password }).then((res) => {
+      console.log(res);
+    });
   };
-
-  console.log(errors);
 
   const closeModal = () => {
     setIsRegisterOpen(false);
@@ -260,7 +260,6 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                           textColor: 'orange',
                           backgroundColor: 'button',
                         }}
-                        onClick={() => console.log('click')}
                       />
                     </div>
                   </form>

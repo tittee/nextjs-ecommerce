@@ -8,8 +8,28 @@ class Service {
     this.api = new NestApi(
       (apiUrl || process.env.NEXT_PUBLIC_SERVICE_API) ?? '',
       process.env.NEST_API_USER ?? 'admin@demo.com',
-      process.env.NEST_API_PASS ?? 'Sawaddee1131'
+      process.env.NEST_API_PASS ?? 'Sawaddee1131',
+      process.env.NEST_API_TOKEN ?? ''
     );
+  }
+
+  signIn(username: string, password: string): Promise<any> {
+    return this.api.post(`/auth/signin`, { username, password }).then((data) => {
+      const accessToken = data.accessToken;
+      this.api.saveToken(accessToken);
+    });
+  }
+
+  signUp({ email, password, firstname, lastname }): Promise<any> {
+    return this.api
+      .post(`/auth/signup`, { email, password, firstname, lastname, username: email })
+      .then((data) => {
+        console.log(data);
+      });
+  }
+
+  signOut() {
+    this.api.removeToken();
   }
 
   getProducts(): Promise<any> {
