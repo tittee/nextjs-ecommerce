@@ -32,14 +32,11 @@ export const transformMainProduct = (data): ProductMainProps => ({
 
 export const transformProduct = (data): ProductProps => ({
   id: data.id,
-  href: getSafeLinkUrl(data.href),
+  slug: getSafeLinkUrl(data.slug),
   name: data.name,
   tag: data.tag,
-  description: data.description,
   price: data.price,
   image: data.image,
-  seller: data.seller,
-  stock: data.stock,
-  dateCreated: data.dateCreated,
-  updatedDate: data.updatedDate,
+  created: data.created,
+  updated: data.updated,
 });

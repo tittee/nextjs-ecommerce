@@ -6,13 +6,16 @@ import Banner from '@components/Banner';
 import HomePageTitle from '@components/Homepage';
 import ProductMain from '@components/ProductMain';
 import axios from 'axios';
-// import Service from 'lib/service';
+import Service from 'lib/service';
 
 interface HomeProps {
   banner: object;
   products: object;
+  productsNew: object;
 }
-const Home: NextPage = ({ banner, products }: HomeProps) => {
+const Home: NextPage = ({ banner, products, productsNew }: HomeProps) => {
+  console.log(productsNew);
+
   return (
     <Layout title="หน้าแรก SWOPMART" bgColor="bg-white">
       <div className="container py-4 md:py-10">
@@ -29,7 +32,9 @@ const Home: NextPage = ({ banner, products }: HomeProps) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const nestjs = new Service();
+  const nestjs = new Service();
+
+  // const [banner, products] = await Promise.all([nestjs.getProducts()]);
   // const [banner] = await Promise.all([nestjs.getBanner()]);
 
   const banner = await axios.get(process.env.NEXT_PUBLIC_API_URL + `/banner`).then((response) => {

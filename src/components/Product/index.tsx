@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { ProductProps } from 'interfaces/components';
 import Bagde from '@components/Badge';
 
-const Product = ({ id, href, name, tag, price, image }: ProductProps) => {
+const Product = ({ id, name, tag, price, image }: ProductProps) => {
   const thaiThb = new Intl.NumberFormat('th-TH', { style: 'currency', currency: 'THB' }).format(
     price
   );

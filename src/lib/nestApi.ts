@@ -6,15 +6,15 @@ const TOKEN_KEY = 'cmsAuthToken';
 class NestApi {
   apiUrl: string;
 
-  identifier: string;
+  username: string;
 
   password: string;
 
   cache: LRUCache;
 
-  constructor(apiUrl: string, identifier: string, password: string) {
+  constructor(apiUrl: string, username: string, password: string) {
     this.apiUrl = apiUrl;
-    this.identifier = identifier;
+    this.username = username;
     this.password = password;
     this.cache = new LRUCache<string, string>();
   }
@@ -24,8 +24,9 @@ class NestApi {
 
     if (!token) {
       // login
-      const { data } = await axios.post(`${this.apiUrl}/auth/local`, {
-        identifier: this.identifier,
+
+      const { data } = await axios.post(`${this.apiUrl}/auth/login`, {
+        username: this.username,
         password: this.password,
       });
 
