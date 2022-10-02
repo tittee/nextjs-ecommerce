@@ -1,17 +1,82 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { useForm } from 'react-hook-form';
+import { useForm, Resolver } from 'react-hook-form';
 import { BodyLabel, BodyLink, Body3 } from '@common/Body';
 import ButtonCommon from '@common/Button';
 import Link from 'next/link';
 
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import Service from 'lib/service';
+
+type FormValues = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
+const resolver: Resolver<FormValues> = async (values) => {
+  return {
+    values: values.firstname ? values : {},
+    errors: !values.firstname
+      ? {
+          firstname: {
+            type: 'required',
+            message: 'This is required.',
+          },
+          lastname: {
+            type: 'required',
+            message: 'This is required.',
+          },
+          email: {
+            type: 'required',
+            message: 'This is required.',
+          },
+          password: {
+            type: 'required',
+            message: 'This is required.',
+          },
+          confirmPassword: {
+            type: 'required',
+            message: 'This is required.',
+          },
+        }
+      : {},
+  };
+};
+
 const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
+  const nestjs = new Service();
+  const formSchema = Yup.object().shape({
+    password: Yup.string()
+      .required('Password is required')
+      .min(4, 'Password length should be at least 4 characters')
+      .max(12, 'Password cannot exceed more than 12 characters'),
+    confirmPassword: Yup.string()
+      .required('Confirm Password is required')
+      .min(4, 'Password length should be at least 4 characters')
+      .max(12, 'Password cannot exceed more than 12 characters')
+      .oneOf([Yup.ref('password')], 'Passwords do not match'),
+  });
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+    watch,
+  } = useForm<FormValues>({
+    mode: 'onTouched',
+    resolver: yupResolver(formSchema),
+  });
+
+  const onSubmit = (data) => {
+    const { firstname, lastname, email, password } = data;
+    nestjs.signUp({ firstname, lastname, email, password }).then((res) => {
+      console.log(res);
+    });
+  };
 
   const closeModal = () => {
     setIsRegisterOpen(false);
@@ -73,7 +138,7 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                     <div className="flex w-full gap-4">
                       <div className="flex-none w-1/2">
                         <BodyLabel
-                          htmlFor="firstName"
+                          htmlFor="firstname"
                           textColor="text-gray-800"
                           style={{ display: 'block' }}
                         >
@@ -83,16 +148,15 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                           type="text"
                           placeholder="First name"
                           className="rounded-lg mb-0"
-                          {...register('firstName', {
+                          {...register('firstname', {
                             required: true,
-                            maxLength: 80,
-                            pattern: /asasas/i,
+                            maxLength: 20,
                           })}
                         />
                       </div>
                       <div className="flex-none w-1/2">
                         <BodyLabel
-                          htmlFor="lastName"
+                          htmlFor="lastname"
                           textColor="text-gray-800"
                           style={{ display: 'block' }}
                         >
@@ -102,10 +166,9 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                           type="text"
                           placeholder="Last name"
                           className="rounded-lg mb-0"
-                          {...register('lastName', {
+                          {...register('lastname', {
                             required: true,
-                            maxLength: 80,
-                            pattern: /asasas/i,
+                            maxLength: 20,
                           })}
                         />
                       </div>
@@ -120,6 +183,7 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                         อีเมล*
                       </BodyLabel>
                       <input
+                        name="email"
                         type="email"
                         placeholder="โปรดกรอกอีเมล"
                         className="rounded-lg mb-0"
@@ -130,6 +194,9 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                         })}
                       />
                     </div>
+                    {errors.email?.type === 'required' && (
+                      <p className="alerts">{errors.email?.message}</p>
+                    )}
 
                     <div className="flex-none w-full">
                       <BodyLabel
@@ -140,11 +207,19 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                         รหัสผ่าน*
                       </BodyLabel>
                       <input
+                        name="password"
                         type="password"
                         placeholder="Password"
                         className="rounded-lg mb-0"
-                        {...register('Password', { required: true, maxLength: 80 })}
+                        {...register('password', {
+                          required: true,
+                          minLength: { value: 8, message: 'You must specify a password' },
+                        })}
                       />
+
+                      {errors.password?.type === 'required' && (
+                        <p role="alert">You must specify a password</p>
+                      )}
                     </div>
 
                     <div className="flex-none w-full">
@@ -156,11 +231,18 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                         ยืนยันรหัสผ่าน*
                       </BodyLabel>
                       <input
+                        name="confirmPassword"
                         type="password"
                         placeholder="Confirm Password"
                         className="rounded-lg mb-0"
-                        {...register('Confirm Password', { required: true })}
+                        {...register('confirmPassword', {
+                          required: true,
+                        })}
                       />
+
+                      {errors.confirmPassword?.type === 'required' && (
+                        <p className="alerts">{errors.confirmPassword?.message}</p>
+                      )}
                     </div>
 
                     <div className="flex-none w-full">
@@ -178,7 +260,6 @@ const RegisterForm = ({ isRegisterOpen, setIsRegisterOpen }) => {
                           textColor: 'orange',
                           backgroundColor: 'button',
                         }}
-                        onClick={() => console.log('click')}
                       />
                     </div>
                   </form>

@@ -7,6 +7,7 @@
       "@components/*": ["./components/*"],
       "@common/*": ["./common/*"]
     },
+    "experimentalDecorators": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "target": "es2015",

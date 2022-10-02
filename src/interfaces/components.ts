@@ -13,16 +13,14 @@ export interface BannerProps {
 
 export interface ProductProps {
   id: number;
-  href?: string;
+  slug?: string;
   name: string;
   tag?: 'เหมือนใหม่' | 'สภาพดี' | 'ปานกลาง';
-  description?: string;
   price?: number;
   image: ImageProps;
-  seller: string;
   stock?: number;
-  dateCreated: Date;
-  updatedDate: Date;
+  created: Date;
+  updated: Date;
 }
 
 export interface ProductMainProps {

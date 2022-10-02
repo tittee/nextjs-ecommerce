@@ -6,7 +6,7 @@ import Banner from '@components/Banner';
 import HomePageTitle from '@components/Homepage';
 import ProductMain from '@components/ProductMain';
 import axios from 'axios';
-// import Service from 'lib/service';
+import Service from 'lib/service';
 
 interface HomeProps {
   banner: object;
@@ -29,7 +29,8 @@ const Home: NextPage = ({ banner, products }: HomeProps) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const nestjs = new Service();
+  const nestjs = new Service();
+
   // const [banner] = await Promise.all([nestjs.getBanner()]);
 
   const banner = await axios.get(process.env.NEXT_PUBLIC_API_URL + `/banner`).then((response) => {

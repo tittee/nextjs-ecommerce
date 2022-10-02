@@ -6,16 +6,19 @@ const TOKEN_KEY = 'cmsAuthToken';
 class NestApi {
   apiUrl: string;
 
-  identifier: string;
+  username: string;
 
   password: string;
 
   cache: LRUCache;
 
-  constructor(apiUrl: string, identifier: string, password: string) {
+  _accessToken: string;
+
+  constructor(apiUrl: string, username: string, password: string, _accessToken: string) {
     this.apiUrl = apiUrl;
-    this.identifier = identifier;
+    this.username = username;
     this.password = password;
+    this._accessToken = _accessToken;
     this.cache = new LRUCache<string, string>();
   }
 
@@ -24,8 +27,9 @@ class NestApi {
 
     if (!token) {
       // login
-      const { data } = await axios.post(`${this.apiUrl}/auth/local`, {
-        identifier: this.identifier,
+
+      const { data } = await axios.post(`${this.apiUrl}/auth/login`, {
+        username: this.username,
         password: this.password,
       });
 
@@ -53,6 +57,25 @@ class NestApi {
     return axios
       .post(`${this.apiUrl}${endpoint}`, body, { headers })
       .then((response) => response.data);
+  }
+
+  get accessToken() {
+    return this._accessToken ? this._accessToken : this.loadToken();
+  }
+
+  saveToken(accessToken) {
+    this._accessToken = accessToken;
+    return localStorage.setItem('accessToken', accessToken);
+  }
+
+  loadToken() {
+    const token = localStorage.getItem('accessToken');
+    this._accessToken = token;
+    return token;
+  }
+
+  removeToken() {
+    localStorage.removeItem('accessToken');
   }
 }
 
